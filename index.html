@@ -1,993 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blockchain Land Registry System | Research Project</title>
-    <meta name="description" content="A comprehensive blockchain-based land deed verification system for Sri Lanka using Hyperledger Fabric and MERN stack">
-    <link rel="stylesheet" href="styles.css">
+    <title>Blockchain Land Registry | Welcome</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            /* Matching typical tech blue */
+            --primary-glow: rgba(59, 130, 246, 0.5);
+            --bg-color: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            overflow: hidden;
+            /* Prevent scrolling on landing page */
+        }
+
+        /* Video Background Container */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.8;
+            filter: grayscale(20%) contrast(120%);
+        }
+
+        /* Overlay to make text readable */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 100%);
+            z-index: -1;
+        }
+
+        /* Main Content */
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #ffffff;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            color: #60a5fa;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInDown 1s ease-out;
+            backdrop-filter: blur(4px);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1.2s ease-out;
+            max-width: 900px;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 1.4s ease-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        /* Call to Action Button */
+        .btn-enter {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: var(--primary-color);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: zoomIn 1.6s ease-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .btn-enter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .btn-enter:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-enter:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--primary-glow);
+            background: #2563eb;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-enter i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-enter:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Floating particles or decorative elements (optional pure CSS addition) */
+        .decor-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            animation: pulse 4s infinite alternate ease-in-out;
+        }
+
+        .decor-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .decor-2 {
+            width: 600px;
+            height: 600px;
+            bottom: -200px;
+            left: -200px;
+            animation-delay: 2s;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        /* Loading fallback */
+        .video-fallback-bg {
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+    </style>
 </head>
+
 <body>
-    <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-    </button>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <i class="fas fa-cube"></i>
-                <span>Blockchain Land Registry</span>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#architecture" class="nav-link">Architecture</a></li>
-                <li><a href="#technology" class="nav-link">Technology</a></li>
-                <li><a href="#demo" class="nav-link">Demo</a></li>
-                <li><a href="#testing" class="nav-link">Testing</a></li>
-                <li><a href="#team" class="nav-link">Team</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+    <!-- Fallback background image if video fails to load or while loading -->
+    <div class="video-fallback-bg"></div>
+
+    <!-- Video Background Container -->
+    <div class="video-container">
+        <video autoplay muted playsinline id="bg-video"
+            poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop">
+            <source src="src/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Overlay Layer for readability -->
+    <div class="overlay"></div>
+
+    <!-- Decorative Glowing Elements -->
+    <div class="decor-circle decor-1"></div>
+    <div class="decor-circle decor-2"></div>
+
+    <!-- Main Content centered -->
+    <main class="content">
+        <div class="badge">
+            <i class="fas fa-link"></i> Web3 Integrated System
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Blockchain Research Project</span>
-                </div>
-                <h1 class="hero-title">
-                    Blockchain-Based Land Deed<br>
-                    <span class="highlight">Verification System</span>
-                </h1>
-                <p class="hero-subtitle">
-                    A comprehensive full-stack implementation using Hyperledger Fabric and MERN stack
-                    to revolutionize land registry operations in Sri Lanka
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="4">0</div>
-                        <div class="stat-label">Organizations</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="3">0</div>
-                        <div class="stat-label">System Layers</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="18">0</div>
-                        <div class="stat-label">TPS Throughput</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number"><span data-target="99">0</span>%</div>
-                        <div class="stat-label">Fraud Detection</div>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#demo" class="btn btn-primary">
-                        <i class="fas fa-play-circle"></i> View Demo
-                    </a>
-                    <a href="#about" class="btn btn-secondary">
-                        <i class="fas fa-book"></i> Learn More
-                    </a>
-                    <a href="https://github.com/yourusername/blockchain-land-registry" target="_blank" class="btn btn-outline">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="blockchain-animation">
-                    <div class="block block-1">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="block block-2">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="block block-3">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="block block-4">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+        <h1>The Future of Secure <br> Land Registration</h1>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">The Problem & Solution</span>
-                <h2 class="section-title">About This Research</h2>
-                <p class="section-subtitle">
-                    Addressing critical inefficiencies in Sri Lanka's land registration system
-                </p>
-            </div>
+        <p>A comprehensive, transparent, and absolutely immutable blockchain-based land deed verification system built
+            for Sri Lanka.</p>
 
-            <div class="about-grid">
-                <div class="about-card problem-card">
-                    <div class="card-icon problem">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h3>Current Problems</h3>
-                    <ul class="problem-list">
-                        <li><i class="fas fa-times-circle"></i> 2-3 weeks verification delay</li>
-                        <li><i class="fas fa-times-circle"></i> Fraud vulnerability (₹ millions lost)</li>
-                        <li><i class="fas fa-times-circle"></i> No tamper-proof audit trail</li>
-                        <li><i class="fas fa-times-circle"></i> Single point of failure</li>
-                        <li><i class="fas fa-times-circle"></i> Manual paper-based processes</li>
-                    </ul>
-                </div>
+        <a href="home.html" class="btn-enter" aria-label="Enter Home Page">
+            Enter Platform <i class="fas fa-arrow-right"></i>
+        </a>
+    </main>
 
-                <div class="about-card solution-card">
-                    <div class="card-icon solution">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Our Solution</h3>
-                    <ul class="solution-list">
-                        <li><i class="fas fa-check-circle"></i> Instant verification (&lt;1 second)</li>
-                        <li><i class="fas fa-check-circle"></i> Cryptographic fraud detection</li>
-                        <li><i class="fas fa-check-circle"></i> Immutable blockchain audit trail</li>
-                        <li><i class="fas fa-check-circle"></i> Distributed across 4 organizations</li>
-                        <li><i class="fas fa-check-circle"></i> Automated digital workflow</li>
-                    </ul>
-                </div>
-            </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var video = document.getElementById("bg-video");
 
-            <div class="objectives">
-                <h3 class="objectives-title">Research Objectives</h3>
-                <div class="objectives-grid">
-                    <div class="objective-card">
-                        <div class="objective-number">01</div>
-                        <p>Design and implement a complete 3-layer blockchain system using Hyperledger Fabric, Express.js backend, and React frontend</p>
-                    </div>
-                    <div class="objective-card">
-                        <div class="objective-number">02</div>
-                        <p>Deploy a 4-organization permissioned network (Land Registry, Private Bank, Public Bank, Notary)</p>
-                    </div>
-                    <div class="objective-card">
-                        <div class="objective-number">03</div>
-                        <p>Develop formal framework reconciling blockchain immutability with PDPA Right to Erasure</p>
-                    </div>
-                    <div class="objective-card">
-                        <div class="objective-number">04</div>
-                        <p>Demonstrate prevention of major attack scenarios through comprehensive fraud detection testing</p>
-                    </div>
-                </div>
-            </div>
+            // Video playlist array
+            var playlist = ["src/1.mp4", "src/2.mp4"];
+            var currentVideoIndex = 0;
 
-            <div class="research-contributions">
-                <h3>Key Contributions</h3>
-                <div class="contributions-grid">
-                    <div class="contribution-item">
-                        <i class="fas fa-code"></i>
-                        <h4>Practical</h4>
-                        <p>Production-ready full-stack implementation with complete GitHub repository</p>
-                    </div>
-                    <div class="contribution-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Theoretical</h4>
-                        <p>Novel formal framework with three provable properties for PDPA compliance</p>
-                    </div>
-                    <div class="contribution-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Security</h4>
-                        <p>Validated fraud detection identifying unauthorized database modifications</p>
-                    </div>
-                    <div class="contribution-item">
-                        <i class="fas fa-layer-group"></i>
-                        <h4>Architectural</h4>
-                        <p>Three-layer design pattern separating immutable and mutable data concerns</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Handle switching to the next video when the current one ends
+            video.addEventListener('ended', function () {
+                currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
+                video.src = playlist[currentVideoIndex];
+                video.play().catch(function (error) {
+                    console.log("Autoplay prevented on next video:", error);
+                });
+            });
 
-    <!-- Architecture Section -->
-    <section id="architecture" class="architecture">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">System Design</span>
-                <h2 class="section-title">Three-Layer Architecture</h2>
-                <p class="section-subtitle">
-                    Separation of concerns between immutability, storage, and user interaction
-                </p>
-            </div>
+            // Play promise helps catch autoplay prevention
+            var playPromise = video.play();
 
-            <!-- ADD YOUR ARCHITECTURE DIAGRAM HERE -->
-            <div class="architecture-diagram">
-                <div class="diagram-placeholder">
-                    <i class="fas fa-image"></i>
-                    <p>Add your architecture diagram here</p>
-                    <small>Replace this div with: &lt;img src="images/architecture-diagram.png" alt="System Architecture"&gt;</small>
-                </div>
-            </div>
-
-            <div class="layers-grid">
-                <div class="layer-card">
-                    <div class="layer-header">
-                        <div class="layer-icon">
-                            <i class="fas fa-cubes"></i>
-                        </div>
-                        <div>
-                            <h3>Layer 1: Blockchain</h3>
-                            <span class="layer-status completed">✓ Completed</span>
-                        </div>
-                    </div>
-                    <p class="layer-description">
-                        Hyperledger Fabric 2.5.4 network storing cryptographic hashes (SHA-256) 
-                        and minimal metadata for immutable verification
-                    </p>
-                    <ul class="layer-features">
-                        <li><i class="fas fa-check"></i> 4 peer organizations</li>
-                        <li><i class="fas fa-check"></i> 1 orderer (Raft consensus)</li>
-                        <li><i class="fas fa-check"></i> TLS-enabled communication</li>
-                        <li><i class="fas fa-check"></i> Go smart contract (151 lines)</li>
-                    </ul>
-                </div>
-
-                <div class="layer-card">
-                    <div class="layer-header">
-                        <div class="layer-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div>
-                            <h3>Layer 2: Backend & Database</h3>
-                            <span class="layer-status completed">✓ Completed</span>
-                        </div>
-                    </div>
-                    <p class="layer-description">
-                        Express.js API with Fabric Gateway SDK integration, MongoDB for mutable 
-                        metadata, and Cloudinary for encrypted document storage
-                    </p>
-                    <ul class="layer-features">
-                        <li><i class="fas fa-check"></i> RESTful API endpoints</li>
-                        <li><i class="fas fa-check"></i> JWT authentication</li>
-                        <li><i class="fas fa-check"></i> Automatic retry service</li>
-                        <li><i class="fas fa-check"></i> Comprehensive audit logging</li>
-                    </ul>
-                </div>
-
-                <div class="layer-card">
-                    <div class="layer-header">
-                        <div class="layer-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div>
-                            <h3>Layer 3: Frontend</h3>
-                            <span class="layer-status completed">✓ Completed</span>
-                        </div>
-                    </div>
-                    <p class="layer-description">
-                        React/TypeScript application with role-based access control, 
-                        real-time blockchain status monitoring, and fraud detection UI
-                    </p>
-                    <ul class="layer-features">
-                        <li><i class="fas fa-check"></i> Responsive design</li>
-                        <li><i class="fas fa-check"></i> Real-time status indicators</li>
-                        <li><i class="fas fa-check"></i> Public verification portal</li>
-                        <li><i class="fas fa-check"></i> Admin dashboard</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="organizations">
-                <h3>Four-Organization Network</h3>
-                <div class="org-grid">
-                    <div class="org-card">
-                        <div class="org-icon">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <h4>Land Registry</h4>
-                        <p class="org-role">Full Access</p>
-                        <ul>
-                            <li>Register deeds</li>
-                            <li>Mark as erased</li>
-                            <li>Query & verify</li>
-                        </ul>
-                        <span class="org-port">Port: 7051</span>
-                    </div>
-
-                    <div class="org-card">
-                        <div class="org-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h4>Private Bank</h4>
-                        <p class="org-role">Read & Verify</p>
-                        <ul>
-                            <li>Query deeds</li>
-                            <li>Verify authenticity</li>
-                            <li>Loan processing</li>
-                        </ul>
-                        <span class="org-port">Port: 8051</span>
-                    </div>
-
-                    <div class="org-card">
-                        <div class="org-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h4>Public Bank</h4>
-                        <p class="org-role">Read & Verify</p>
-                        <ul>
-                            <li>Query deeds</li>
-                            <li>Verify authenticity</li>
-                            <li>Government loans</li>
-                        </ul>
-                        <span class="org-port">Port: 9051</span>
-                    </div>
-
-                    <div class="org-card">
-                        <div class="org-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4>Notary</h4>
-                        <p class="org-role">Read Only</p>
-                        <ul>
-                            <li>Query deeds</li>
-                            <li>Verify for legal</li>
-                            <li>No write access</li>
-                        </ul>
-                        <span class="org-port">Port: 10051</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section id="technology" class="technology">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Tech Stack</span>
-                <h2 class="section-title">Technology & Implementation</h2>
-                <p class="section-subtitle">
-                    Modern technologies powering the blockchain land registry system
-                </p>
-            </div>
-
-            <div class="tech-stack">
-                <div class="tech-category">
-                    <h3><i class="fas fa-cube"></i> Blockchain</h3>
-                    <div class="tech-items">
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fas fa-cubes"></i></div>
-                            <span>Hyperledger Fabric 2.5.4</span>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fab fa-golang"></i></div>
-                            <span>Go 1.20</span>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fab fa-docker"></i></div>
-                            <span>Docker 28.3.2</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-category">
-                    <h3><i class="fas fa-server"></i> Backend</h3>
-                    <div class="tech-items">
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fab fa-node-js"></i></div>
-                            <span>Node.js v18+</span>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fas fa-code"></i></div>
-                            <span>Express.js 5</span>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fas fa-database"></i></div>
-                            <span>MongoDB Atlas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-category">
-                    <h3><i class="fas fa-desktop"></i> Frontend</h3>
-                    <div class="tech-items">
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fab fa-react"></i></div>
-                            <span>React 18</span>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fas fa-code"></i></div>
-                            <span>TypeScript 5</span>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-icon"><i class="fas fa-wind"></i></div>
-                            <span>Tailwind CSS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="smart-contract">
-                <h3>Smart Contract Functions</h3>
-                <div class="functions-grid">
-                    <div class="function-card">
-                        <div class="function-header">
-                            <code>RegisterDeed()</code>
-                            <span class="function-type">Write</span>
-                        </div>
-                        <p>Creates new deed record with SHA-256 hash on blockchain ledger</p>
-                    </div>
-
-                    <div class="function-card">
-                        <div class="function-header">
-                            <code>QueryDeed()</code>
-                            <span class="function-type read">Read</span>
-                        </div>
-                        <p>Retrieves complete deed record including hash and metadata</p>
-                    </div>
-
-                    <div class="function-card">
-                        <div class="function-header">
-                            <code>VerifyDeed()</code>
-                            <span class="function-type read">Read</span>
-                        </div>
-                        <p>Compares provided hash against blockchain for authenticity check</p>
-                    </div>
-
-                    <div class="function-card">
-                        <div class="function-header">
-                            <code>MarkAsErased()</code>
-                            <span class="function-type">Write</span>
-                        </div>
-                        <p>PDPA compliance: marks deed as erased while preserving hash</p>
-                    </div>
-
-                    <div class="function-card">
-                        <div class="function-header">
-                            <code>QueryAllDeeds()</code>
-                            <span class="function-type read">Read</span>
-                        </div>
-                        <p>Returns complete list of all registered deeds for audit trail</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="security-features">
-                <h3>Security Features</h3>
-                <div class="security-grid">
-                    <div class="security-item">
-                        <i class="fas fa-fingerprint"></i>
-                        <h4>SHA-256 Hashing</h4>
-                        <p>Cryptographic fingerprint for each document ensuring uniqueness</p>
-                    </div>
-                    <div class="security-item">
-                        <i class="fas fa-lock"></i>
-                        <h4>TLS Encryption</h4>
-                        <p>All network communication secured with X.509 certificates</p>
-                    </div>
-                    <div class="security-item">
-                        <i class="fas fa-users-cog"></i>
-                        <h4>Role-Based Access</h4>
-                        <p>Granular permissions based on organization and user role</p>
-                    </div>
-                    <div class="security-item">
-                        <i class="fas fa-database"></i>
-                        <h4>Immutable Ledger</h4>
-                        <p>Append-only blockchain preventing record modification</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section id="demo" class="demo">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Live Demonstration</span>
-                <h2 class="section-title">System Demo & Screenshots</h2>
-                <p class="section-subtitle">
-                    See the blockchain land registry system in action
-                </p>
-            </div>
-
-            <!-- ADD YOUR VIDEO HERE -->
-            <div class="video-demo">
-                <h3>Video Demonstration</h3>
-                <div class="video-container">
-                    <div class="video-placeholder">
-                        <i class="fas fa-video"></i>
-                        <p>Add your demo video here</p>
-                        <small>Replace with YouTube embed or video file</small>
-                        <!-- EXAMPLE: Replace placeholder above with this (update VIDEO_ID):
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-                        -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- ADD YOUR SCREENSHOTS HERE -->
-            <div class="screenshots">
-                <h3>System Screenshots</h3>
-                <div class="screenshots-grid">
-                    <div class="screenshot-item">
-                        <div class="screenshot-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>Dashboard</p>
-                        </div>
-                        <!-- Replace with: <img src="images/dashboard.png" alt="Dashboard"> -->
-                        <p>Real-time blockchain status monitoring</p>
-                    </div>
-                    <div class="screenshot-item">
-                        <div class="screenshot-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>Register Deed</p>
-                        </div>
-                        <!-- Replace with: <img src="images/register.png" alt="Register Deed"> -->
-                        <p>Deed registration with blockchain confirmation</p>
-                    </div>
-                    <div class="screenshot-item">
-                        <div class="screenshot-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>Verify Deed</p>
-                        </div>
-                        <!-- Replace with: <img src="images/verify.png" alt="Verify Deed"> -->
-                        <p>Public verification portal (no login required)</p>
-                    </div>
-                    <div class="screenshot-item">
-                        <div class="screenshot-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>Fraud Detection</p>
-                        </div>
-                        <!-- Replace with: <img src="images/fraud.png" alt="Fraud Detection"> -->
-                        <p>Tampering detection with hash comparison</p>
-                    </div>
-                    <div class="screenshot-item">
-                        <div class="screenshot-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>Transfer Ownership</p>
-                        </div>
-                        <!-- Replace with: <img src="images/transfer.png" alt="Transfer"> -->
-                        <p>Ownership transfer with audit trail</p>
-                    </div>
-                    <div class="screenshot-item">
-                        <div class="screenshot-placeholder">
-                            <i class="fas fa-image"></i>
-                            <p>Audit Logs</p>
-                        </div>
-                        <!-- Replace with: <img src="images/audit.png" alt="Audit Logs"> -->
-                        <p>Complete system activity history</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="features-demo">
-                <h3>Key Features Demonstrated</h3>
-                <div class="demo-features">
-                    <div class="demo-feature">
-                        <div class="demo-icon">
-                            <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <h4>Instant Verification</h4>
-                        <p>2-3 weeks → &lt;1 second verification time</p>
-                    </div>
-                    <div class="demo-feature">
-                        <div class="demo-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <h4>Fraud Detection</h4>
-                        <p>Automatic tampering detection through hash comparison</p>
-                    </div>
-                    <div class="demo-feature">
-                        <div class="demo-icon">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
-                        <h4>Graceful Degradation</h4>
-                        <p>System works offline with automatic blockchain sync</p>
-                    </div>
-                    <div class="demo-feature">
-                        <div class="demo-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h4>PDPA Compliance</h4>
-                        <p>Right to Erasure while maintaining audit trail</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testing Section -->
-    <section id="testing" class="testing">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Validation & Results</span>
-                <h2 class="section-title">Testing & Performance</h2>
-                <p class="section-subtitle">
-                    Comprehensive testing validates security, performance, and functionality
-                </p>
-            </div>
-
-            <div class="test-results">
-                <h3>Test Scenarios</h3>
-                <div class="tests-grid">
-                    <div class="test-card passed">
-                        <div class="test-header">
-                            <span class="test-number">Test 1</span>
-                            <span class="test-status"><i class="fas fa-check-circle"></i> PASSED</span>
-                        </div>
-                        <h4>Deed Registration</h4>
-                        <p>End-to-end registration with blockchain confirmation in 3.2 seconds</p>
-                    </div>
-
-                    <div class="test-card passed">
-                        <div class="test-header">
-                            <span class="test-number">Test 2</span>
-                            <span class="test-status"><i class="fas fa-check-circle"></i> PASSED</span>
-                        </div>
-                        <h4>Public Verification</h4>
-                        <p>Instant deed verification without authentication in 0.8 seconds</p>
-                    </div>
-
-                    <div class="test-card passed">
-                        <div class="test-header">
-                            <span class="test-number">Test 3</span>
-                            <span class="test-status"><i class="fas fa-check-circle"></i> PASSED</span>
-                        </div>
-                        <h4>Ownership Transfer</h4>
-                        <p>Transfer creates new blockchain record while maintaining history</p>
-                    </div>
-
-                    <div class="test-card passed highlight">
-                        <div class="test-header">
-                            <span class="test-number">Test 4</span>
-                            <span class="test-status"><i class="fas fa-check-circle"></i> PASSED</span>
-                        </div>
-                        <h4>Fraud Detection</h4>
-                        <p><strong>CRITICAL:</strong> System detected unauthorized database tampering through hash mismatch</p>
-                    </div>
-
-                    <div class="test-card passed">
-                        <div class="test-header">
-                            <span class="test-number">Test 5</span>
-                            <span class="test-status"><i class="fas fa-check-circle"></i> PASSED</span>
-                        </div>
-                        <h4>Graceful Degradation</h4>
-                        <p>Automatic retry service successfully recovered from blockchain downtime</p>
-                    </div>
-
-                    <div class="test-card passed">
-                        <div class="test-header">
-                            <span class="test-number">Test 6</span>
-                            <span class="test-status"><i class="fas fa-check-circle"></i> PASSED</span>
-                        </div>
-                        <h4>Concurrent Access</h4>
-                        <p>3 simultaneous registrations processed successfully without conflicts</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="performance-metrics">
-                <h3>Performance Metrics</h3>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">2.5-3.5s</div>
-                        <div class="metric-label">Registration Time</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">0.6-1.2s</div>
-                        <div class="metric-label">Verification Time</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">12-18</div>
-                        <div class="metric-label">TPS Throughput</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">3,000×</div>
-                        <div class="metric-label">Capacity Headroom</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="security-analysis">
-                <h3>Security Analysis</h3>
-                <table class="security-table">
-                    <thead>
-                        <tr>
-                            <th>Attack Scenario</th>
-                            <th>Traditional System</th>
-                            <th>Our Blockchain</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Admin Tampering</td>
-                            <td>Succeeds silently</td>
-                            <td>Hash mismatch detected instantly</td>
-                            <td><span class="status-badge prevented">✓ PREVENTED</span></td>
-                        </tr>
-                        <tr>
-                            <td>Backdating Records</td>
-                            <td>Easy to modify timestamp</td>
-                            <td>Blockchain consensus timestamp</td>
-                            <td><span class="status-badge prevented">✓ PREVENTED</span></td>
-                        </tr>
-                        <tr>
-                            <td>Evidence Deletion</td>
-                            <td>DELETE command removes all</td>
-                            <td>Append-only immutable ledger</td>
-                            <td><span class="status-badge prevented">✓ PREVENTED</span></td>
-                        </tr>
-                        <tr>
-                            <td>Multi-Party Collusion</td>
-                            <td>Two admins can cover tracks</td>
-                            <td>Requires 4-org consensus</td>
-                            <td><span class="status-badge prevented">✓ PREVENTED</span></td>
-                        </tr>
-                        <tr>
-                            <td>Entry-Point Fraud</td>
-                            <td>Also fails here</td>
-                            <td>Cannot prevent initial fraud</td>
-                            <td><span class="status-badge limitation">✗ LIMITATION</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="limitation-note">
-                    <i class="fas fa-info-circle"></i>
-                    <strong>Honest Limitation:</strong> The system cannot prevent fraudulent data entry at registration. 
-                    This is a fundamental limitation of all blockchain systems—blockchain secures post-registration 
-                    integrity, not pre-registration validation.
-                </p>
-            </div>
-
-            <div class="comparison">
-                <h3>Comparison: Blockchain vs Traditional System</h3>
-                <div class="comparison-grid">
-                    <div class="comparison-item">
-                        <h4>Verification Speed</h4>
-                        <div class="comparison-bars">
-                            <div class="comparison-bar">
-                                <div class="bar-label">Traditional</div>
-                                <div class="bar-fill traditional" style="width: 100%;">2-3 weeks</div>
-                            </div>
-                            <div class="comparison-bar">
-                                <div class="bar-label">Blockchain</div>
-                                <div class="bar-fill blockchain" style="width: 5%;">&lt;1 sec</div>
-                            </div>
-                        </div>
-                        <p class="improvement">1,800,000× faster</p>
-                    </div>
-                    <div class="comparison-item">
-                        <h4>Tampering Detection</h4>
-                        <div class="comparison-bars">
-                            <div class="comparison-bar">
-                                <div class="bar-label">Traditional</div>
-                                <div class="bar-fill traditional" style="width: 100%;">Often never</div>
-                            </div>
-                            <div class="comparison-bar">
-                                <div class="bar-label">Blockchain</div>
-                                <div class="bar-fill blockchain" style="width: 5%;">Instant</div>
-                            </div>
-                        </div>
-                        <p class="improvement">Mathematical proof vs trust</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Research Team</span>
-                <h2 class="section-title">Meet the Team</h2>
-                <p class="section-subtitle">
-                    Dedicated researchers working to revolutionize land registry systems
-                </p>
-            </div>
-
-            <!-- ADD YOUR PHOTOS HERE -->
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <!-- Replace with: <img src="images/your-photo.jpg" alt="Your Name"> -->
-                    </div>
-                    <h3>Your Name Here</h3>
-                    <p class="member-role">Lead Researcher</p>
-                    <p class="member-degree">BICT (Hons) in Networking</p>
-                    <p class="member-university">University of Sri Jayewardenepura</p>
-                    <div class="member-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <!-- Replace with: <img src="images/supervisor-photo.jpg" alt="Supervisor Name"> -->
-                    </div>
-                    <h3>Supervisor Name</h3>
-                    <p class="member-role">Research Supervisor</p>
-                    <p class="member-degree">PhD, Senior Lecturer</p>
-                    <p class="member-university">University of Sri Jayewardenepura</p>
-                    <div class="member-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:supervisor@sjp.ac.lk" title="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ADD UNIVERSITY LOGO HERE -->
-            <div class="university-info">
-                <div class="university-logo">
-                    <div class="logo-placeholder">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <!-- Replace with: <img src="images/university-logo.png" alt="University Logo"> -->
-                </div>
-                <div class="university-details">
-                    <h3>University of Sri Jayewardenepura</h3>
-                    <p>Faculty of Technology</p>
-                    <p>Department of Information and Communication Technology</p>
-                    <p>Bachelor of Information and Communication Technology (Hons) in Networking</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Get In Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">
-                    Have questions about the research? Want to collaborate? Reach out!
-                </p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>your.email@example.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <div>
-                            <h4>University</h4>
-                            <p>University of Sri Jayewardenepura</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div>
-                            <h4>GitHub Repository</h4>
-                            <p><a href="https://github.com/yourusername/blockchain-land-registry" target="_blank">View Source Code</a></p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <div>
-                            <h4>Download Thesis</h4>
-                            <p><a href="#" download>Thesis Draft 2 (PDF)</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-
-                    <div id="formMessage" class="form-message"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-cube"></i> Blockchain Land Registry</h3>
-                    <p>A comprehensive research project addressing land deed verification challenges in Sri Lanka through blockchain technology.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#architecture">Architecture</a></li>
-                        <li><a href="#demo">Demo</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://github.com/yourusername/blockchain-land-registry" target="_blank">GitHub Repository</a></li>
-                        <li><a href="#" download>Download Thesis</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Blockchain Land Registry Research Project. University of Sri Jayewardenepura.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="script.js"></script>
+            if (playPromise !== undefined) {
+                playPromise.catch(function (error) {
+                    // Auto-play was prevented; fallback will show
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
