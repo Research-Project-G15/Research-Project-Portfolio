@@ -1059,21 +1059,58 @@ section {
     margin-top: 16px;
 }
 
-/* Team */
+/* Team Awesome Design */
+.team-category-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.team-section-wrapper {
+    position: relative;
+    margin-bottom: 80px;
+    padding-top: 40px;
+}
+
+/* Remove absolute stripe, move styling to individual members to handle responsive wrapping elegantly */
+.team-bg-stripe {
+    display: none;
+}
+
+.team {
+    overflow: hidden; 
+}
+
 .team-grid {
+    position: relative;
+    z-index: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; /* Remove gap so yellow stripe merges seamlessly */
+    margin-bottom: 0;
 }
 
 .team-member {
-    background: var(--bg-secondary);
-    padding: 40px;
-    border-radius: 16px;
+    position: relative;
+    background: transparent;
+    padding: 0 15px;
+    border-radius: 0;
     text-align: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: none;
     transition: transform 0.3s;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 100px; /* Adjust yellow bar top offset */
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-color: var(--primary);
+    z-index: -1;
 }
 
 .team-member:hover {
@@ -1081,51 +1118,96 @@ section {
 }
 
 .member-photo {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 24px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid var(--primary);
-}
-
-.photo-placeholder {
     width: 100%;
-    height: 100%;
-    padding: 0;
+    height: 250px;
+    margin: 0 auto 20px;
+    border-radius: 0;
+    border: none;
+    overflow: visible;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 
-.member-role {
-    color: var(--primary);
+.photo-placeholder {
+    width: 160px;
+    height: 160px;
+    background: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.member-photo img {
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.team-member:hover .member-photo img {
+    filter: grayscale(0%);
+}
+
+.member-name {
+    font-size: 16px;
+    text-transform: uppercase;
     font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.member-role {
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.member-divider {
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary);
+    margin: 0 auto 16px;
+}
+
+.member-meta {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 16px;
+    line-height: 1.4;
 }
 
 .member-links {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 .member-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--bg-tertiary);
+    width: 36px;
+    height: 36px;
+    background: #f5f5f5;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
+    color: #aaa;
     transition: all 0.3s;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .member-links a:hover {
     background: var(--primary);
-    color: white;
+    color: #fff;
     transform: translateY(-2px);
 }
 
@@ -1376,8 +1458,9 @@ section {
     .hero .container { flex-direction: column; text-align: center; }
     .hero-title { font-size: 36px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .about-grid, .objectives-grid, .tests-grid, .comparison-grid, .team-grid { grid-template-columns: 1fr; }
-    .org-grid, .contributions-grid, .security-grid, .demo-features, .metrics-grid { grid-template-columns: 1fr; }
+    .about-grid, .objectives-grid, .tests-grid, .comparison-grid { grid-template-columns: 1fr; }
+    .org-grid, .contributions-grid, .security-grid, .demo-features, .metrics-grid, .team-grid { grid-template-columns: 1fr; }
+    .team-member { padding-bottom: 50px; }
     .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-content { grid-template-columns: 1fr; }
 }

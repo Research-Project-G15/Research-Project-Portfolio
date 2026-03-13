@@ -945,78 +945,125 @@ const Home: React.FC = () => {
                 <span className="section-badge">Research Team</span>
                 <h2 className="section-title">Meet the Team</h2>
                 <p className="section-subtitle">
-                    Dedicated researchers working to revolutionize land registry systems
+                    Dedicated researchers and supervisors driving the project forward
                 </p>
             </div>
 
-            <div className="team-grid">
-                <div className="team-member">
-                    <div className="member-photo">
-                        <div className="photo-placeholder">
-                            <i className="fas fa-user"></i>
+            <div className="team-section-wrapper">
+                <div className="team-bg-stripe"></div>
+                <div className="team-grid">
+                    <div className="team-member">
+                        <div className="member-photo">
+                            <img src="/Research-Project-Portfolio/img/chamila.png" alt="Chamila Karunatilake" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0'}}/>
+                        </div>
+                        <h3 className="member-name">Mr. Chamila Karunatilake</h3>
+                        <p className="member-role">Research Supervisor</p>
+                        <div className="member-divider"></div>
+                        <div className="member-meta">
+                            <p>Senior Lecturer</p>
+                            <p>Dept. of ICT, Faculty of Technology, USJ</p>
+                        </div>
+                        <div className="member-links">
+                            <a href="https://www.linkedin.com/in/chamila-karunatilake-36b9b327/" target="_blank" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:chamilakarunatilake@sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
                         </div>
                     </div>
-                    <h3>M.A.D. Silva</h3>
-                    <p className="member-role">Researcher</p>
-                    <p className="member-degree">BICT (Hons) — ICT/21/924</p>
-                    <p className="member-university">University of Sri Jayewardenepura</p>
-                    <div className="member-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
-                        <a href="mailto:your.email@example.com" title="Email"><i className="fas fa-envelope"></i></a>
-                    </div>
-                </div>
 
-                <div className="team-member">
-                    <div className="member-photo">
-                        <div className="photo-placeholder">
-                            <i className="fas fa-user"></i>
+                    <div className="team-member">
+                        <div className="member-photo">
+                            <img src="/Research-Project-Portfolio/img/senaka.png" alt="Senaka Amarakeerthi" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0'}}/>
+                        </div>
+                        <h3 className="member-name">Dr. Senaka Amarakeerthi</h3>
+                        <p className="member-role">Research Supervisor</p>
+                        <div className="member-divider"></div>
+                        <div className="member-meta">
+                            <p>Senior Lecturer</p>
+                            <p>Otago Polytechnic Auckland International Campus</p>
+                        </div>
+                        <div className="member-links">
+                            <a href="https://www.linkedin.com/in/senaka-amarakeerthi-96648719/" target="_blank" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:supervisor2@sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
                         </div>
                     </div>
-                    <h3>H.N.S. Daluwatta</h3>
-                    <p className="member-role">Researcher</p>
-                    <p className="member-degree">BICT (Hons) — ICT/21/820</p>
-                    <p className="member-university">University of Sri Jayewardenepura</p>
-                    <div className="member-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
-                        <a href="mailto:your.email@example.com" title="Email"><i className="fas fa-envelope"></i></a>
-                    </div>
-                </div>
 
-                <div className="team-member">
-                    <div className="member-photo">
-                        <div className="photo-placeholder">
-                            <i className="fas fa-user"></i>
+                    <div className="team-member">
+                        <div className="member-photo">
+                            <img src="/Research-Project-Portfolio/img/malshan.png" alt="Dinusha Malshan" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0'}}/>
                         </div>
-                    </div>
-                    <h3>W.M.D. Piyumika</h3>
-                    <p className="member-role">Researcher</p>
-                    <p className="member-degree">BICT (Hons) — ICT/21/898</p>
-                    <p className="member-university">University of Sri Jayewardenepura</p>
-                    <div className="member-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
-                        <a href="mailto:your.email@example.com" title="Email"><i className="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div className="team-member">
-                    <div className="member-photo">
-                        <div className="photo-placeholder">
-                            <i className="fas fa-user-tie"></i>
+                        <h3 className="member-name">Mr. Dinusha Malshan</h3>
+                        <p className="member-role">Research Leader</p>
+                        <div className="member-divider"></div>
+                        <div className="member-meta">
+                            <p>Lecturer</p>
+                            <p>Dept. of ICT, Faculty of Technology, USJ</p>
                         </div>
-                    </div>
-                    <h3>Mr. Chamila Karunatilake</h3>
-                    <p className="member-role">Research Supervisor</p>
-                    <p className="member-degree">Senior Lecturer</p>
-                    <p className="member-university">Dept. of ICT, Faculty of Technology, USJ</p>
-                    <div className="member-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                        <a href="mailto:supervisor@sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
+                        <div className="member-links">
+                            <a href="https://www.linkedin.com/in/dinusha-malshan-13633219a/" target="_blank" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:supervisor3@sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+            <div className="team-section-wrapper">
+                <div className="team-bg-stripe"></div>
+                <div className="team-grid">
+                    <div className="team-member">
+                        <div className="member-photo">
+                            <img src="/Research-Project-Portfolio/img/dulara.png" alt="M.A.D. Silva" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0'}}/>
+                        </div>
+                        <h3 className="member-name">M.A.D. Silva</h3>
+                        <p className="member-role">Researcher</p>
+                        <div className="member-divider"></div>
+                        <div className="member-meta">
+                            <p>BICT (Hons) — ICT/21/924</p>
+                            <p>University of Sri Jayewardenepura</p>
+                        </div>
+                        <div className="member-links">
+                            <a href="https://www.linkedin.com/in/dularaabhiranda21/" target="_blank" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/DularaAbhiranda" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
+                            <a href="mailto:ict21924@fot.sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <div className="team-member">
+                        <div className="member-photo">
+                            <img src="/Research-Project-Portfolio/img/nadun.png" alt="H.N.S. Daluwatta" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0'}}/>
+                        </div>
+                        <h3 className="member-name">H.N.S. Daluwatta</h3>
+                        <p className="member-role">Researcher</p>
+                        <div className="member-divider"></div>
+                        <div className="member-meta">
+                            <p>BICT (Hons) — ICT/21/820</p>
+                            <p>University of Sri Jayewardenepura</p>
+                        </div>
+                        <div className="member-links">
+                            <a href="https://www.linkedin.com/in/nadundaluwatta/" target="_blank" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/NadunDalu" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
+                            <a href="mailto:ict21820@fot.sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <div className="team-member">
+                        <div className="member-photo">
+                            <img src="/Research-Project-Portfolio/img/dilshi.png" alt="W.M.D. Piyumika" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0'}}/>
+                        </div>
+                        <h3 className="member-name">W.M.D. Piyumika</h3>
+                        <p className="member-role">Researcher</p>
+                        <div className="member-divider"></div>
+                        <div className="member-meta">
+                            <p>BICT (Hons) — ICT/21/898</p>
+                            <p>University of Sri Jayewardenepura</p>
+                        </div>
+                        <div className="member-links">
+                            <a href="https://www.linkedin.com/in/dilshi-piyumika-a56042268/" target="_blank" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/dilshi126" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
+                            <a href="mailto:ict21820@fot.sjp.ac.lk" title="Email"><i className="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             {/* ADD UNIVERSITY LOGO HERE */}
             <div className="university-info">
