@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const Home: React.FC = () => {
   const [navActive, setNavActive] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const formMessageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -290,13 +291,25 @@ const Home: React.FC = () => {
                 </p>
             </div>
 
-            {/* ADD YOUR ARCHITECTURE DIAGRAM HERE */}
-            <div className="architecture-diagram">
-                <div className="diagram-placeholder">
-                    <i className="fas fa-image"></i>
-                    <p>Add your architecture diagram here</p>
-                    <small>Replace this div with: &lt;img src="images/architecture-diagram.png" alt="System
-                        Architecture"&gt;</small>
+            <div className="architecture-diagram" style={{ textAlign: 'center', marginBottom: '60px' }}>
+                <div 
+                    className="expandable-image-wrapper" 
+                    onClick={() => setExpandedImage('/Research-Project-Portfolio/img/arch-diagram.svg')}
+                    style={{ 
+                        maxWidth: '1000px', 
+                        margin: '0 auto',
+                        backgroundColor: 'var(--bg-primary)',
+                        padding: '24px'
+                    }}
+                >
+                    <img 
+                        src="/Research-Project-Portfolio/img/arch-diagram.svg" 
+                        alt="System Architecture Diagram" 
+                    />
+                    <div className="expandable-image-overlay">
+                        <i className="fas fa-search-plus"></i>
+                        <span>Click to expand</span>
+                    </div>
                 </div>
             </div>
 
@@ -671,51 +684,110 @@ const Home: React.FC = () => {
                 <h3>System Screenshots</h3>
                 <div className="screenshots-grid">
                     <div className="screenshot-item">
-                        <div className="screenshot-placeholder">
-                            <i className="fas fa-image"></i>
-                            <p>Dashboard</p>
+                        <div 
+                            className="expandable-image-wrapper" 
+                            onClick={() => setExpandedImage('/Research-Project-Portfolio/img/dashboard.png')}
+                            style={{ marginBottom: '16px' }}
+                        >
+                            <img 
+                                src="/Research-Project-Portfolio/img/dashboard.png" 
+                                alt="Dashboard" 
+                                onError={(e) => { e.currentTarget.src = "/Research-Project-Portfolio/img/reg-deed.png"; }}
+                            />
+                            <div className="expandable-image-overlay">
+                                <i className="fas fa-search-plus"></i>
+                                <span>Click to expand</span>
+                            </div>
                         </div>
-                        {/* Replace with: <img src="images/dashboard.png" alt="Dashboard" /> */}
                         <p>Real-time blockchain status monitoring</p>
                     </div>
                     <div className="screenshot-item">
-                        <div className="screenshot-placeholder">
-                            <i className="fas fa-image"></i>
-                            <p>Register Deed</p>
+                        <div 
+                            className="expandable-image-wrapper" 
+                            onClick={() => setExpandedImage('/Research-Project-Portfolio/img/reg-deed.png')}
+                            style={{ marginBottom: '16px' }}
+                        >
+                            <img 
+                                src="/Research-Project-Portfolio/img/reg-deed.png" 
+                                alt="Register Deed" 
+                            />
+                            <div className="expandable-image-overlay">
+                                <i className="fas fa-search-plus"></i>
+                                <span>Click to expand</span>
+                            </div>
                         </div>
-                        {/* Replace with: <img src="images/register.png" alt="Register Deed" /> */}
                         <p>Deed registration with blockchain confirmation</p>
                     </div>
                     <div className="screenshot-item">
-                        <div className="screenshot-placeholder">
-                            <i className="fas fa-image"></i>
-                            <p>Verify Deed</p>
+                        <div 
+                            className="expandable-image-wrapper" 
+                            onClick={() => setExpandedImage('/Research-Project-Portfolio/img/verify.png')}
+                            style={{ marginBottom: '16px' }}
+                        >
+                            <img 
+                                src="/Research-Project-Portfolio/img/verify.png" 
+                                alt="Verify Deed" 
+                                onError={(e) => { e.currentTarget.src = "/Research-Project-Portfolio/img/reg-deed.png"; }}
+                            />
+                            <div className="expandable-image-overlay">
+                                <i className="fas fa-search-plus"></i>
+                                <span>Click to expand</span>
+                            </div>
                         </div>
-                        {/* Replace with: <img src="images/verify.png" alt="Verify Deed" /> */}
                         <p>Public verification portal (no login required)</p>
                     </div>
                     <div className="screenshot-item">
-                        <div className="screenshot-placeholder">
-                            <i className="fas fa-image"></i>
-                            <p>Fraud Detection</p>
+                        <div 
+                            className="expandable-image-wrapper" 
+                            onClick={() => setExpandedImage('/Research-Project-Portfolio/img/fraud.png')}
+                            style={{ marginBottom: '16px' }}
+                        >
+                            <img 
+                                src="/Research-Project-Portfolio/img/fraud.png" 
+                                alt="Fraud Detection" 
+                                onError={(e) => { e.currentTarget.src = "/Research-Project-Portfolio/img/reg-deed.png"; }}
+                            />
+                            <div className="expandable-image-overlay">
+                                <i className="fas fa-search-plus"></i>
+                                <span>Click to expand</span>
+                            </div>
                         </div>
-                        {/* Replace with: <img src="images/fraud.png" alt="Fraud Detection" /> */}
                         <p>Tampering detection with hash comparison</p>
                     </div>
                     <div className="screenshot-item">
-                        <div className="screenshot-placeholder">
-                            <i className="fas fa-image"></i>
-                            <p>Transfer Ownership</p>
+                        <div 
+                            className="expandable-image-wrapper" 
+                            onClick={() => setExpandedImage('/Research-Project-Portfolio/img/transfer.png')}
+                            style={{ marginBottom: '16px' }}
+                        >
+                            <img 
+                                src="/Research-Project-Portfolio/img/transfer.png" 
+                                alt="Transfer Ownership" 
+                                onError={(e) => { e.currentTarget.src = "/Research-Project-Portfolio/img/reg-deed.png"; }}
+                            />
+                            <div className="expandable-image-overlay">
+                                <i className="fas fa-search-plus"></i>
+                                <span>Click to expand</span>
+                            </div>
                         </div>
-                        {/* Replace with: <img src="images/transfer.png" alt="Transfer" /> */}
                         <p>Ownership transfer with audit trail</p>
                     </div>
                     <div className="screenshot-item">
-                        <div className="screenshot-placeholder">
-                            <i className="fas fa-image"></i>
-                            <p>Audit Logs</p>
+                        <div 
+                            className="expandable-image-wrapper" 
+                            onClick={() => setExpandedImage('/Research-Project-Portfolio/img/audit-logs.png')}
+                            style={{ marginBottom: '16px' }}
+                        >
+                            <img 
+                                src="/Research-Project-Portfolio/img/audit-logs.png" 
+                                alt="Audit Logs" 
+                                onError={(e) => { e.currentTarget.src = "/Research-Project-Portfolio/img/audit-logs"; }}
+                            />
+                            <div className="expandable-image-overlay">
+                                <i className="fas fa-search-plus"></i>
+                                <span>Click to expand</span>
+                            </div>
                         </div>
-                        {/* Replace with: <img src="images/audit.png" alt="Audit Logs" /> */}
                         <p>Complete system activity history</p>
                     </div>
                 </div>
@@ -1220,11 +1292,20 @@ const Home: React.FC = () => {
     </footer>
 
     {/* Scroll to Top Button */}
-    
+    <button onClick={scrollToTop} className={`scroll-top ${showScroll ? "visible" : ""}`} aria-label="Scroll to top"><i className="fas fa-arrow-up"></i></button>
 
-    
+    {/* Lightbox Modal */}
+    <div className={`lightbox-modal ${expandedImage ? 'active' : ''}`} onClick={() => setExpandedImage(null)}>
+        <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={() => setExpandedImage(null)}>
+                <i className="fas fa-times"></i>
+            </button>
+            {expandedImage && (
+                <img src={expandedImage} alt="Expanded view" className="lightbox-img" />
+            )}
+        </div>
+    </div>
 
-          <button onClick={scrollToTop} className={`scroll-top ${showScroll ? "visible" : ""}`} aria-label="Scroll to top"><i className="fas fa-arrow-up"></i></button>
     </div>
   );
 };
