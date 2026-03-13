@@ -4,7 +4,7 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Research-Project-Portfolio">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
