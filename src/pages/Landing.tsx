@@ -1,56 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Landing.css';
 
-const playlist = ["/1.mp4", "/2.mp4"];
-
 const Landing: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const currentVideoIndex = useRef(0);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleEnded = () => {
-      currentVideoIndex.current = (currentVideoIndex.current + 1) % playlist.length;
-      video.src = playlist[currentVideoIndex.current];
-      video.play().catch(error => {
-        console.log("Autoplay prevented on next video:", error);
-      });
-    };
-
-    video.addEventListener('ended', handleEnded);
-
-    // Initial play promise handling
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.log("Autoplay prevented:", error);
-      });
-    }
-
-    return () => {
-      video.removeEventListener('ended', handleEnded);
-    };
-  }, []);
-
   return (
     <div className="landing-container">
-      {/* Fallback background image if video fails to load or while loading */}
-      <div className="landing-fallback-bg"></div>
-
       {/* Video Background Container */}
       <div className="landing-video-container">
         <video 
-          ref={videoRef}
           autoPlay 
           muted 
+          loop
           playsInline 
           id="bg-video"
-          poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
         >
-          <source src={playlist[0]} type="video/mp4" />
+          <source src="/Research-Project-Portfolio/blockchain.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
