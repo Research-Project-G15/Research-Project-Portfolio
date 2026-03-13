@@ -166,16 +166,16 @@ const Home: React.FC = () => {
             <div className="hero-visual">
                 <div className="blockchain-animation">
                     <div className="block block-1">
-                        <i className="fas fa-cube"></i>
+                        <i className="fas fa-file-contract"></i>
                     </div>
                     <div className="block block-2">
-                        <i className="fas fa-cube"></i>
+                        <i className="fas fa-network-wired"></i>
                     </div>
                     <div className="block block-3">
-                        <i className="fas fa-cube"></i>
+                        <i className="fas fa-shield-alt"></i>
                     </div>
                     <div className="block block-4">
-                        <i className="fas fa-cube"></i>
+                        <i className="fas fa-link"></i>
                     </div>
                 </div>
             </div>
