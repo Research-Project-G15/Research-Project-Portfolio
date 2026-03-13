@@ -1,0 +1,242 @@
+/* ================================================
+   Landing Page — Sri Lankan Theme
+   ================================================ */
+
+:root {
+  --lk-gold: #D4A017;
+  --lk-gold-deep: #8B6914;
+  --lk-maroon: #7B1113;
+  --lk-maroon-light: #A52A2A;
+  --lk-green: #0D6938;
+  --lk-glow: rgba(212, 160, 23, 0.45);
+}
+
+body, html {
+  height: 100%;
+}
+
+.landing-container {
+  font-family: 'Inter', 'Space Grotesk', sans-serif;
+  background-color: #0a0600;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* Video Background Container */
+.landing-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #0a0600;
+}
+
+.landing-video-container video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.6;
+  filter: sepia(15%) contrast(110%) brightness(0.85);
+}
+
+/* Overlay — warm maroon/gold tones */
+.landing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(123, 17, 19, 0.88) 0%,
+    rgba(26, 18, 7, 0.85) 40%,
+    rgba(139, 105, 20, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Main Content */
+.landing-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Badge — golden accent */
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  border-radius: 50px;
+  color: #D4A017;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeInDown 1s ease-out;
+  backdrop-filter: blur(6px);
+}
+
+.landing-badge .flag-emoji {
+  font-size: 1.1rem;
+}
+
+/* Heading — gold gradient text */
+.landing-content h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #ffffff, #D4A017, #F5C542);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1.2s ease-out;
+  max-width: 900px;
+}
+
+/* Subtitle */
+.landing-content p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #d4c8a8;
+  max-width: 650px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  animation: fadeInUp 1.4s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Call to Action Button — maroon with golden glow */
+.landing-btn-enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--lk-maroon), var(--lk-maroon-light));
+  border: 2px solid rgba(212, 160, 23, 0.3);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: zoomIn 1.6s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  box-shadow: 0 0 25px var(--lk-glow), 0 4px 15px rgba(123, 17, 19, 0.3);
+}
+
+.landing-btn-enter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212, 160, 23, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.landing-btn-enter:hover::before {
+  transform: translateX(100%);
+}
+
+.landing-btn-enter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px var(--lk-glow), 0 6px 20px rgba(123, 17, 19, 0.4);
+  background: linear-gradient(135deg, #9a1517, #c44040);
+  border-color: rgba(212, 160, 23, 0.5);
+  color: white;
+}
+
+.landing-btn-enter i {
+  transition: transform 0.3s ease;
+}
+
+.landing-btn-enter:hover i {
+  transform: translateX(4px);
+}
+
+/* Floating particles — warm gold */
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, transparent 70%);
+  z-index: 1;
+  animation: pulse 4s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+.decor-1 {
+  width: 450px;
+  height: 450px;
+  top: -120px;
+  right: -120px;
+}
+
+.decor-2 {
+  width: 650px;
+  height: 650px;
+  bottom: -220px;
+  left: -220px;
+  animation-delay: 2s;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Loading fallback — warm dark background */
+.landing-fallback-bg {
+  background: radial-gradient(ellipse at center, #1a0e04 0%, #0a0600 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
