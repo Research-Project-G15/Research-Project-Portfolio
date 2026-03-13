@@ -1068,16 +1068,13 @@ const Home: React.FC = () => {
             {/* ADD UNIVERSITY LOGO HERE */}
             <div className="university-info">
                 <div className="university-logo">
-                    <div className="logo-placeholder">
-                        <i className="fas fa-university"></i>
-                    </div>
-                    {/* Replace with: <img src="images/university-logo.png" alt="University Logo" /> */}
+                    <img src="/Research-Project-Portfolio/img/usjp-logo.png" alt="University of Sri Jayewardenepura Logo" />
                 </div>
                 <div className="university-details">
                     <h3>University of Sri Jayewardenepura</h3>
-                    <p>Faculty of Technology</p>
-                    <p>Department of Information and Communication Technology</p>
-                    <p>Bachelor of Information and Communication Technology (Hons) in Networking</p>
+                    <p><i className="fas fa-graduation-cap" style={{color:'var(--primary)', width:'20px'}}></i> Faculty of Technology</p>
+                    <p><i className="fas fa-laptop-code" style={{color:'var(--primary)', width:'20px'}}></i> Department of Information and Communication Technology</p>
+                    <p><i className="fas fa-certificate" style={{color:'var(--primary)', width:'20px'}}></i> Bachelor of Information and Communication Technology (Hons) in Networking</p>
                 </div>
             </div>
         </div>
@@ -1102,7 +1099,7 @@ const Home: React.FC = () => {
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <p>your.email@example.com</p>
+                            <p>b6g15nk@gmail.com</p>
                         </div>
                     </div>
 
@@ -1122,7 +1119,7 @@ const Home: React.FC = () => {
                         </div>
                         <div>
                             <h4>GitHub Repository</h4>
-                            <p><a href="https://github.com/yourusername/blockchain-land-registry" target="_blank">View
+                            <p><a href="https://github.com/Research-Project-G15" target="_blank">View
                                     Source Code</a></p>
                         </div>
                     </div>
@@ -1131,9 +1128,17 @@ const Home: React.FC = () => {
                         <div className="contact-icon">
                             <i className="fas fa-file-pdf"></i>
                         </div>
-                        <div>
-                            <h4>Download Thesis</h4>
-                            <p><a href="#" download>Thesis Draft 2 (PDF)</a></p>
+                        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center'}}>
+                            <h4 style={{marginBottom: '10px'}}>Download Thesis</h4>
+                            <a 
+                                href="https://drive.google.com/file/d/1eodTn_MvW_9m1CW_Jt_iNslowL80XUIF/view?usp=sharing" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="btn btn-primary" 
+                                style={{padding: '8px 16px', fontSize: '14px'}}
+                            >
+                                <i className="fas fa-download"></i> Thesis Draft 2 (PDF)
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1192,9 +1197,9 @@ const Home: React.FC = () => {
                 <div className="footer-section">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="https://github.com/yourusername/blockchain-land-registry" target="_blank">GitHub
+                        <li><a href="https://github.com/Research-Project-G1" target="_blank">GitHub
                                 Repository</a></li>
-                        <li><a href="#" download>Download Thesis</a></li>
+                        <li><a href="https://drive.google.com/file/d/1eodTn_MvW_9m1CW_Jt_iNslowL80XUIF/view?usp=sharing" download>Download Thesis</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
@@ -1202,9 +1207,8 @@ const Home: React.FC = () => {
                 <div className="footer-section">
                     <h4>Connect</h4>
                     <div className="social-links">
-                        <a href="#" target="_blank" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
-                        <a href="mailto:your.email@example.com" title="Email"><i className="fas fa-envelope"></i></a>
+                        <a href="https://github.com/Research-Project-G1" target="_blank" title="GitHub"><i className="fab fa-github"></i></a>
+                        <a href="mailto:b6g15nk@gmail.com" title="Email"><i className="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>

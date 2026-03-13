@@ -1213,24 +1213,70 @@ section {
 
 /* University */
 .university-info {
-    background: var(--bg-secondary);
-    padding: 40px;
-    border-radius: 16px;
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #faf8f5 100%);
+    padding: 50px;
+    border-radius: 20px;
     display: flex;
-    gap: 32px;
+    gap: 40px;
     align-items: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 30px rgba(139, 105, 20, 0.08); /* Matches primary theme color slightly */
+    border: 1px solid rgba(139, 105, 20, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.logo-placeholder {
-    width: 120px;
-    height: 120px;
-    padding: 0;
+.university-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(139, 105, 20, 0.12);
+}
+
+.university-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.university-logo {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.university-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.university-details {
+    flex-grow: 1;
+}
+
+.university-details h3 {
+    font-size: 26px;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-weight: 800;
 }
 
 .university-details p {
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
 }
 
 /* Contact */
