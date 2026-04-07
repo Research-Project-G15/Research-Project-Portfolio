@@ -158,7 +158,7 @@ const Home: React.FC = () => {
                     <a href="https://www.lkland.live" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                         <i className="fas fa-external-link-alt"></i> Live Site
                     </a>
-                    <a href="https://github.com/yourusername/blockchain-land-registry" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                    <a href="https://github.com/Research-Project-G15" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                         <i className="fab fa-github"></i> GitHub
                     </a>
                 </div>
